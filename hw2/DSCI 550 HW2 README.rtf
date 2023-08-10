@@ -1,0 +1,84 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Fake Paper Generation Project\
+============================\
+\
+Overview\
+--------\
+\
+This project involves generating fake academic papers by combining data from the USC library, web scraping research papers from the reference lists, and fine-tuning GPT-2 models.\
+\
+Project Workflow\
+----------------\
+\
+1. Web Scraping: Selenium, bgetpass, pyautogui, undetected_webdriver are used to web scrape the USC library to download academic papers based on their DOIs from the "third_dataset.csv" file, which contains the final dataset from a previous task (hw1); and BeautifulSoup and Selenium are used for researchgate to download the additional 201 papers from the reference list for the ** EXTRA 20% CREDIT **.\
+\
+2. PDF Content Extraction via Tina Parser and Cleaning: The downloaded papers are processed using the Tika parser to extract their content into a single large text corpus. The text is then cleaned and formatted in LaTeX to separate the title and content of each paper, as well as to create clear distinctions between different papers.\
+\
+3. Model Fine-Tuning: Three GPT-2 models are fine-tuned using the original txt file "result_USC.txt," the cleaned but unformatted file "trial4_5.txt," and the cleaned and formatted file "final_trial.txt." This results in three corresponding models.\
+\
+4. Fake Paper Generation: A total of 500 fake academic papers are generated using the three GPT-2 models and saved in a CSV file.\
+\
+5. Data Structure Refinement: The CSV file containing the fake papers is refined, with the first line limited to 45 characters as the title and the rest as the content, organized into separate columns, and it is called \'93fake_final.csv\'94.\
+\
+6. Partial Metadata Generation: Metadata for the fake papers is generated based on statistical distributions derived from the "third_dataset.csv." This includes fake university names, nations, research interest indices, and more. \
+\
+7. Fake Author Generation: Fake author names are generated using the Faker Python library and added to "fourth_dataset.csv."\
+\
+8. Title Merging: The titles from "fake_final.csv" are merged into "fourth_dataset.csv" to complete the dataset.\
+\
+9. PDF Generating: Using pdflatex to give formats on title and content from the \'93fake_final.csv\'94, and the author and affiliation from the \'93fourth_dataset.csv\'94 file, and generate the 500 pdfs for ** EXTRA 20% CREDIT **\
+\
+Libraries & Environments\
+------------\
+\
+The following Python libraries are used in this project:\
+\
+- os\
+- pandas\
+- selenium\
+- undetected_webdriver\
+- pyautogui\
+- getpass\
+- time\
+- traceback\
+- csv\
+- requests\
+- subprocess\
+- sys\
+- Faker\
+- gpt-2-simple\
+- tika\
+- PyPDF2\
+- pdflatex\
+- BeautifulSoup\
+\
+Installation Steps\
+------------------\
+\
+1. bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" #Install Homebrew (if not already installed).\
+2. brew update #Update Homebrew.\
+3. brew install --cask mactex-no-gui # Install MacTeX (LaTeX distribution) using Homebrew.\
+4. export PATH="/usr/local/texlive/2021/bin/x86_64-darwin:$PATH" #Add LaTeX binaries to your PATH.\
+5. Install the required Python libraries using pip.\
+\
+It\'92s also worth noting that during our trials, pdflatex works better with Python 3.11 compare with 3.9\
+\
+Output\
+------\
+\
+The project produces the following outputs:\
+\
+- 500 fake academic papers generated using GPT-2 models.\
+- 414 (213 from the original dataset and 201 from reference lists) downloaded papers from both USC libraries and ReasearchGate.\
+- "fake_final.csv" containing all the generated fake papers with their titles.\
+- "fourth_dataset.csv" containing all the metadata for the papers from this project.\
+\
+Please note that the project involves web scraping, which may have ethical implications. Ensure compliance with any terms of use and ethical guidelines when using this code for academic purposes.\
+\
+}

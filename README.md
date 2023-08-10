@@ -1,1 +1,2 @@
-# Big_data_project
+# DSCI 550
+ group projects
