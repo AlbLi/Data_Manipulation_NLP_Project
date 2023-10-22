@@ -139,7 +139,7 @@ Thus, we believe it is challenging to pinpoint which model is better than the ot
 
 
 
-5. What other types of datasets could have been used to generate the falsified
+## 5. What other types of datasets could have been used to generate the falsified
 papers? Pick at least two datasets from distinct MIME types.
 We could use other datasets of videos or audio to generate the falsified papers. We could use the author's name or affiliation title as the keyword to search for videos on Youtube or other video-dominant platforms. We can use BeautifulSoup or Youtube api to download relevant clips, use packages like ffmpeg-python to transform videos into audio, then use Speech_recognition to transcribe it into text further. Or, we can scrape the caption directly through the three-dot menu below the video →. Click open transcript → scrape the transcript. Or else, we can use youtube-transcript-API for scraping as well.
 Similarly, we can use the author name or affiliation title as the keyword to search for audio on Podcast or other audio-dominant platforms. We can use the get podcast package to scrape audio from Podcast and then use Speech_recognition to transcribe it into text for further analyses. 
